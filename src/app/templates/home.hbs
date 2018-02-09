@@ -2,6 +2,9 @@
 <a href="#newtask">Nouvelle Tâche</a>
 <ul>
   {{#each tasks}}
-    <li>{{this.title}}</li>
+    <li id="li-task-{{this.id}}">
+      <input type="checkbox" class="checkbox-item" id="check-task-{{this.id}}" num="{{this.id}}"/>
+      <label for="check-task-{{this.id}}">{{this.title}}</label>
+    </li>
   {{/each}}
 </ul>
