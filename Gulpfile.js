@@ -6,6 +6,8 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var hbsfy = require('hbsfy');
 var clean = require('gulp-clean');
+var merge = require('merge-stream');
+
 
 var time_key = (new Date()).getTime();
 
@@ -60,7 +62,18 @@ gulp.task('prod',function(){
 });
 
 
+gulp.task('materialize',function() {
+  var css = gulp.src(config.inSrc('vendors/materialize-css/css/*.min.css'))
+    .pipe(gulp.dest(config.inDist('assets/libs/css')));
+  var js = gulp.src(config.inSrc('vendors/materialize-css/js/*.min.js'))
+    .pipe(gulp.dest(config.inDist('assets/libs/js')));
 
-gulp.task('default',['js','html']);
+  return merge(css,js);
+});
 
-gulp.task('build',['prod','js','html']);
+
+
+
+gulp.task('default',['js','html','materialize']);
+
+gulp.task('build',['prod','js','html','materialize']);
