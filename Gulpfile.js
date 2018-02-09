@@ -74,7 +74,7 @@ gulp.task('materialize',function() {
 
 
 gulp.task('default',['js','html','materialize'], function() {
-  gulp.watch(config.inSrc('app/**/*.js'),['js','html']);
+  gulp.watch(config.inSrc('app/**/*.*'),['js','html']);
 });
 
 gulp.task('build',['prod','js','html','materialize']);
