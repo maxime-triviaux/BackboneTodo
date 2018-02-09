@@ -16,19 +16,21 @@ module.exports = Backbone.View.extend({
 
 
   initialize: function() {
-
+    this.tasks = window.tasks;
   },
 
   render: function() {
-    var compiled = template({tasks: window.tasks.toJSON()});
+    var compiled = template({tasks: this.tasks.toJSON()});
     $(this.el).html(compiled);
     return this;
   },
 
   checkToggle: function(e) {
     var checkbox = $("#"+e.target.id);
-    var li = $("#li-task-"+checkbox.attr('num'));
+    var taskId = checkbox.attr('num');
+    var li = $("#li-task-"+taskId);
     li.slideUp();
+    this.tasks.remove(taskId);
   }
 
 

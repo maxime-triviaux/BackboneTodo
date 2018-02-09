@@ -8,6 +8,7 @@ module.exports = Backbone.Model.extend({
 
   defaults:{
     id: 1,
+    idAttribute: "id",
     title: "Titre de la tâche",
     content: "Contenu de la tâche",
     publicationDate: new Date()

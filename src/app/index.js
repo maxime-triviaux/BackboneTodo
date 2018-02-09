@@ -16,8 +16,8 @@ $(document).ready(function() {
   window.tasks.add(new TaskModel({id: 1, title:'Title Task 1', content:'Content Task'}));
   window.tasks.add(new TaskModel({id: 2, title:'Title Task 2', content:'Content Task'}));
   window.tasks.add(new TaskModel({id: 3, title:'Title Task 3', content:'Content Task'}));
-  window.tasks.add(new TaskModel({id: 4, title:'Title Task 5', content:'Content Task'}));
-  window.tasks.add(new TaskModel({id: 5, title:'Title Task 4', content:'Content Task'}));
+  window.tasks.add(new TaskModel({id: 4, title:'Title Task 4', content:'Content Task'}));
+  window.tasks.add(new TaskModel({id: 5, title:'Title Task 5', content:'Content Task'}));
   window.tasks.add(new TaskModel({id: 6, title:'Title Task 6', content:'Content Task'}));
 
   new Router();

@@ -11,6 +11,7 @@ module.exports = Backbone.Router.extend({
 
   routes: {
       "":"default",
+      "home": "default",
       "newtask": "newtask"
   },
 
