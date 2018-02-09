@@ -65,15 +65,16 @@ gulp.task('prod',function(){
 gulp.task('materialize',function() {
   var css = gulp.src(config.inSrc('vendors/materialize-css/css/*.min.css'))
     .pipe(gulp.dest(config.inDist('assets/libs/css')));
-  var js = gulp.src(config.inSrc('vendors/materialize-css/js/*.min.js'))
-    .pipe(gulp.dest(config.inDist('assets/libs/js')));
-
-  return merge(css,js);
+  var fonts = gulp.src(config.inSrc('vendors/materialize-css/fonts/roboto/*'))
+    .pipe(gulp.dest(config.inDist('assets/libs/fonts/roboto')));
+  return merge(css,fonts);
 });
 
 
 
 
-gulp.task('default',['js','html','materialize']);
+gulp.task('default',['js','html','materialize'], function() {
+  gulp.watch(config.inSrc('app/**/*.js'),['js','html']);
+});
 
 gulp.task('build',['prod','js','html','materialize']);
